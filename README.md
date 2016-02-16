@@ -28,6 +28,11 @@ This application requires:
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
+Deployment
+----------
+
+https://fight-club1.herokuapp.com/
+
 Getting Started
 ---------------
 
