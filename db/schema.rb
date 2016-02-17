@@ -16,49 +16,11 @@ ActiveRecord::Schema.define(version: 20160216152456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "abilities", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "value"
-    t.integer  "pokemon_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "battles", force: :cascade do |t|
+  create_table "fights", force: :cascade do |t|
     t.integer  "pokemon_id"
     t.integer  "competitor_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "invitations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.string   "inviter_username"
-    t.string   "group_name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "friend_id"
-  end
-
-  create_table "memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -70,39 +32,12 @@ ActiveRecord::Schema.define(version: 20160216152456) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "group_id"
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.integer  "pokemon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "remember_digest"
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "first_name"
-    t.string   "last_name"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
 end
