@@ -6,10 +6,10 @@ class Pokemon < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :experience
 
   def calculate_battle_points
-    battle_points = (skills.find_by(name: 'Flying').value ^ skills.find_by(name: 'Speed').value) 
-    + ((skills.find_by(name: 'Strength').value ^ 3) * (skills.find_by(name: 'Agility').value ^ 2)) 
-    + ((skills.find_by(name: 'Wisdom').value ^ skills.find_by(name: 'Tactics').value)/2)
-    + ((skills.find_by(name: 'Inference').value ^ skills.find_by(name: 'Learning').value)/4)
+    battle_points = ((skills[0].value + skills[1].value) ** 2) +
+    ((skills[2].value ** 3) + (skills[3].value ** 2)) +
+    ((skills[4].value + skills[5].value)/2) +
+     ((skills[6].value + skills[7].value)/4)
     update_attribute(:battle_points, battle_points)
   end
 
