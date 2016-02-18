@@ -22,20 +22,11 @@ RSpec.describe Pokemon, type: :model do
     it { should have_db_column :updated_at }
   end
 
-  describe 'methods' do
+  # describe 'methods' do
 
-    let(:pokemon){create(:pokemon)}
-    let(:pokemon1){create(:pokemon1)}
-    it 'cant challange itself' do
-      expect(pokemon.challange(pokemon)).to_not be_truthy
-    end
+  #   let(:pokemon){create(:pokemon)}
+  #   let(:pokemon1){create(:pokemon1)}
 
-    it 'can challange other pokemon' do
-      expect(pokemon.challange(pokemon1)).to be_truthy
-      expect(pokemon.fights.first).not_to be_nil
-      expect(pokemon1.inverse_fights.first).not_to be_nil
-    end
-
-  end
+  # end
 
 end

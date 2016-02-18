@@ -1,13 +1,12 @@
 class FightsController < ApplicationController
-  include FightsHelper
   def new
   end
 
   def create
-    pokemon1 = Pokemon.find(params[:pokemon_id])
-    pokemon2 = Pokemon.find(params[:competitor_id])
-    if add_fight(pokemon1, pokemon2)
-      Flash.now('#{@fight.find_winner.full_name} won')
+    fight = Fight.new(params[:pokemon_id], params[:competitor_id])
+    fight.find_winner
+    if fight.save
+      Flash.now('#{fight.winner.full_name} won')
       render @fight
     else
       Flash.now('Something went wrong')
