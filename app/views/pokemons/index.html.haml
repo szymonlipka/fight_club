@@ -1,0 +1,26 @@
+%table
+  .heading
+    %tr
+      %th First name 
+      %th Last name 
+      %th Battle points 
+      %th Fights won 
+      %th Fights lost 
+      %th Experience 
+  - @pokemons.each do |pokemon|
+    %tr
+      %th 
+        = pokemon.first_name
+      %th 
+        = pokemon.last_name
+      %th 
+        = pokemon.battle_points
+      %th 
+        = pokemon.fights_won
+      %th 
+        = pokemon.fights_lost
+      %th 
+        = pokemon.experience
+.digg_pagination
+  = will_paginate @pokemons
+

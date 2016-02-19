@@ -1,17 +1,20 @@
 class Pokemon < ActiveRecord::Base
-
   has_many :inverse_fights, class_name: "Fight", foreign_key: "competitor_id"
   has_many :fights
   has_many :skills
   validates_presence_of :first_name, :last_name, :experience
-  validate :sum_of_skill_values, :minimum_skills
+  validate :sum_of_skill_values, :minimum_skills, :max_skills
 
   def minimum_skills
-    sum
+    sum = 0
     skills.each do |skill|
       sum += 1 unless skill[:value] == 0
     end
     errors.add(:skills_count, 'at least 3 skills have to be with value') unless sum >= 3
+  end
+
+  def max_skills
+    errors.add(:max_skills, 'you have to have exacly 8 skills') unless skills.length == 8
   end
 
   def sum_of_skill_values

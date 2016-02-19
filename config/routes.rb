@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'static_pages#home'
-  resource :fight, only: [:new, :create, :show]
-  resource :pokemon, only: [:show, :new, :create] do
+  resources :fights, only: [:new, :create, :show]
+  resources :pokemons, only: [:show, :new, :create, :index] do
     resources :fights, only: [:index]
   end
   

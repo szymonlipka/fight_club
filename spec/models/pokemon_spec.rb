@@ -22,11 +22,42 @@ RSpec.describe Pokemon, type: :model do
     it { should have_db_column :updated_at }
   end
 
-  # describe 'methods' do
+  describe 'method' do
 
-  #   let(:pokemon){create(:pokemon)}
-  #   let(:pokemon1){create(:pokemon1)}
+    let(:pokemon) do 
+      build(:pokemon) do |pokemon|
+        pokemon.skills << Skill.create([
+          {name: 'Flying', value: '3'}, 
+          {name: 'Speed', value: '1'}, 
+          {name: 'Strength', value: '1'},
+          {name: 'Wisdom', value: '0'},
+          {name: 'Tactics', value: '0'},
+          {name: 'Learning', value: '1'},
+          {name: 'Inference', value: '0'},
+          {name: 'Agility', value: '4'}])
+      end
+    end
+    let(:pokemon1) do 
+      build(:pokemon) do |pokemon|
+        pokemon.skills << Skill.create([
+          {name: 'Flying', value: '0'}, 
+          {name: 'Speed', value: '0'}, 
+          {name: 'Strength', value: '5'},
+          {name: 'Wisdom', value: '3'},
+          {name: 'Tactics', value: '1'},
+          {name: 'Learning', value: '1'},
+          {name: 'Inference', value: '0'},
+          {name: 'Agility', value: '0'}])
+      end
+    end
 
-  # end
+    it 'calculates properly battle points' do
+      pokemon.calculate_battle_points
+      pokemon1.calculate_battle_points
+      expect(pokemon.battle_points).to eq(18)
+      expect(pokemon1.battle_points).to eq(135)
+    end
+
+  end
 
 end
