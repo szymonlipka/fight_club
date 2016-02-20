@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'will_paginate'
+gem 'avatars_for_rails'
 group :development, :test do
   gem 'byebug'
 end
@@ -15,14 +16,15 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+gem 'bootstrap_form'
+gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'
 gem 'haml-rails'
-gem 'high_voltage'
 gem 'pg'
 group :development do
   gem 'better_errors'
   gem 'html2haml'
-  gem 'hub', :require=>nil
+  gem 'hub', require: nil
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'

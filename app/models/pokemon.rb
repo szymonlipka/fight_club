@@ -5,6 +5,10 @@ class Pokemon < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :experience
   validate :sum_of_skill_values, :minimum_skills, :max_skills
 
+  def ranking
+    Pokemon.all.order('fights_won - fights_lost DESC').index(self) + 1
+  end
+
   def minimum_skills
     sum = 0
     skills.each do |skill|
@@ -34,12 +38,12 @@ class Pokemon < ActiveRecord::Base
   end
 
   def all_fights
-    super
+    fights
     inverse_fights
   end
 
   def full_name
-    first_name + last_name
+    first_name + ' ' + last_name
   end
 
 end

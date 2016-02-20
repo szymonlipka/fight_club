@@ -1,14 +1,18 @@
+-  params[:page] ? i = 10 * (params[:page].to_i - 1) : i = 0
 %table
   .heading
     %tr
+      %th Place
       %th First name 
       %th Last name 
       %th Battle points 
       %th Fights won 
       %th Fights lost 
       %th Experience 
-  - @pokemons.each do |pokemon|
+  - @pokemons.each do |pokemon, index|
     %tr
+      %th
+        = i+=1
       %th 
         = pokemon.first_name
       %th 
@@ -21,6 +25,5 @@
         = pokemon.fights_lost
       %th 
         = pokemon.experience
-.digg_pagination
-  = will_paginate @pokemons
+= will_paginate @pokemons, renderer: BootstrapPagination::Rails
 

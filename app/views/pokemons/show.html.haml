@@ -1,2 +1,27 @@
-%h1 Pokemon#show
-%p Find me in app/views/pokemon/show.html.haml
+%center 
+  %h1 Dashboard
+= @pokemon.logo
+%h4 Name
+%p 
+  = @pokemon.full_name
+- if @pokemon.description
+  %h4 Description
+  %p 
+    = @pokemon.description
+%h4 Battle Points
+%p 
+  = @pokemon.battle_points
+%h4 Ranking placement
+%p= @pokemon.ranking
+%h2 Skills
+- @pokemon.skills.each do |skill|
+  %p= skill.name + ' ' + skill.value.to_s
+%table
+  %tr
+    %th Fights won
+    %th Fights lost
+  %tr
+    %th= @pokemon.fights_won
+    %th= @pokemon.fights_lost
+
+

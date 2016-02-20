@@ -1,3 +1,14 @@
 // Place all the styles related to the fights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.column-left { 
+  float: left; width: 33%; 
+}
+.column-right{ 
+  float: right; width: 33%; 
+}
+.column-center{
+  align-self: center;
+  display: inline-block; 
+  width: 33%; 
+}

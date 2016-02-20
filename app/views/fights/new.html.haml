@@ -1,2 +1,9 @@
-%h1 Fights#new
-%p Find me in app/views/fights/new.html.haml
+= form_for @fight do |f|
+  .column-left
+    = f.select(:pokemon_id, Pokemon.all.collect {|p| [p.full_name, p.id]})
+  .column-center
+    = image_tag 'vs.png'
+  .column-right
+    = f.select(:competitor_id, Pokemon.all.collect {|p| [p.full_name, p.id]})
+  %center
+    = f.submit 'FIGHT!'
