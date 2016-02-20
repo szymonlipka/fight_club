@@ -4,6 +4,8 @@ class Pokemon < ActiveRecord::Base
   has_many :skills
   validates_presence_of :first_name, :last_name, :experience
   validate :sum_of_skill_values, :minimum_skills, :max_skills
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ActionController::Base.helpers.asset_path('missing.png')
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def ranking
     Pokemon.all.order('fights_won - fights_lost DESC').index(self) + 1

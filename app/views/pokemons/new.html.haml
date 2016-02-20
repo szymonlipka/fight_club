@@ -9,6 +9,7 @@
   = f.text_field :first_name, placeholder: 'First name'
   = f.text_field :last_name, placeholder: 'Last name'
   = f.text_area :description, placeholder: 'Description'
+  = f.file_field :avatar
   %h3 Your Skill levels
   - @pokemon.skills.each do |skill|
     = f.fields_for skill, index: skill.name.downcase do |skill_form|

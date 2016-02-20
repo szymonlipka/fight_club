@@ -20,7 +20,7 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    @pokemon = Pokemon.new(first_name: params[:pokemon][:first_name], last_name: params[:pokemon][:last_name], description: params[:pokemon][:description])
+    @pokemon = Pokemon.new(pokemon_params)
     @skills = @pokemon.skills.build([{name: 'Flying', value: params[:pokemon][:skill][:flying][:value]},
                           {name: 'Speed', value: params[:pokemon][:skill][:speed][:value]},
                           {name: 'Strength', value: params[:pokemon][:skill][:strength][:value]},
@@ -34,8 +34,14 @@ class PokemonsController < ApplicationController
       flash[:notice] = 'Congratz youve created pokemon!'
       redirect_to @pokemon
     else
-      render 'new'
+      render 'pokemons/new'
     end
+  end
+
+  private
+
+  def pokemon_params
+  params.require(:pokemon).permit(:first_name, :last_name, :description, :avatar)
   end
 
 end
