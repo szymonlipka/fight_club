@@ -9,6 +9,7 @@
       %th Fights won 
       %th Fights lost 
       %th Experience 
+      %th Ranking points
   - @pokemons.each do |pokemon, index|
     %tr
       %th
@@ -25,5 +26,7 @@
         = pokemon.fights_lost
       %th 
         = pokemon.experience
+      %th
+        = pokemon.ranking_points
 = will_paginate @pokemons, renderer: BootstrapPagination::Rails
 

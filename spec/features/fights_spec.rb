@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe  'adding fights' do
-  before(:each) do
+  before(:all) do
     @pokemon = Pokemon.new(first_name: 'Ja', last_name: 'Ja')
     @pokemon1 = Pokemon.new(first_name: 'Ja1', last_name: 'Ja1')
     @pokemon.skills << Skill.create([
@@ -37,6 +37,8 @@ describe  'adding fights' do
     expect(Pokemon.last.fights_won).to eq(1)
     expect(Pokemon.first.experience).to eq(50)
     expect(Pokemon.last.experience).to eq(100)
+    expect(Pokemon.last.ranking_points).to eq(1020)
+    expect(Pokemon.first.ranking_points).to eq(980)
     expect(Fight.last.winner).to eq(@pokemon1)
     expect(Fight.last.looser).to eq(@pokemon)
   end

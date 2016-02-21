@@ -13,11 +13,11 @@ class FightsController < ApplicationController
         redirect_to root_path
       else
         flash[:danger] = 'Something went wrong'
-        render 'new'
+        redirect_to new_fight_path
       end
     else
       flash[:danger] = 'You cant fight with the same pokemons'
-      render 'new'
+      redirect_to new_fight_path
     end
   end
 

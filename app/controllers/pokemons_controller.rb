@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all.order('fights_won - fights_lost DESC').paginate(page: params[:page], per_page: 10)
+    @pokemons = Pokemon.all.order('ranking_points DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show
