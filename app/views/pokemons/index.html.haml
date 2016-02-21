@@ -1,32 +1,3 @@
--  params[:page] ? i = 10 * (params[:page].to_i - 1) : i = 0
-%table
-  .heading
-    %tr
-      %th Place
-      %th First name 
-      %th Last name 
-      %th Battle points 
-      %th Fights won 
-      %th Fights lost 
-      %th Experience 
-      %th Ranking points
-  - @pokemons.each do |pokemon, index|
-    %tr
-      %th
-        = i+=1
-      %th 
-        = pokemon.first_name
-      %th 
-        = pokemon.last_name
-      %th 
-        = pokemon.battle_points
-      %th 
-        = pokemon.fights_won
-      %th 
-        = pokemon.fights_lost
-      %th 
-        = pokemon.experience
-      %th
-        = pokemon.ranking_points
+= render partial: 'pokemons'
 = will_paginate @pokemons, renderer: BootstrapPagination::Rails
 

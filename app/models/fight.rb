@@ -1,6 +1,7 @@
 class Fight < ActiveRecord::Base
   belongs_to :winner, foreign_key: :pokemon_id, class_name: 'Pokemon'
   belongs_to :looser, foreign_key: :competitor_id, class_name: 'Pokemon'
+  before_save :find_winner
 
   def find_winner
     winner.experience == 0 ? battle_points1 = winner.battle_points : battle_points1 = winner.battle_points * (winner.experience/50)

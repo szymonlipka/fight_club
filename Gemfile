@@ -16,6 +16,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+gem 'rails_bootstrap_navbar'
 gem 'bootstrap_form'
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'

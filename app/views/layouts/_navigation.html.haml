@@ -1,14 +1,11 @@
 -# navigation styled for Bootstrap 3.0
-%nav.navbar.navbar-default.navbar-fixed-top
-  .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        = link_to 'Ranking', pokemons_path
-        = link_to 'New Fight', new_fight_path
+= navbar fixed: :top do
+  = navbar_header brand: 'Fight Club', brand_link: '/'
+  = navbar_collapse do
+    = navbar_group class: 'foo', id: 'menu' do
+      = navbar_text 'Pick an option:'
+      = navbar_item "Home", '/'
+      = navbar_item "Ranking", pokemons_path
+    = navbar_group align: 'right' do
+      = navbar_item "New Fight", new_fight_path
+      = navbar_item "New Pokemon", new_pokemon_path

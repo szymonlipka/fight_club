@@ -1,7 +1,7 @@
 %center 
   %h1 Dashboard
 .column-left
-  = image_tag @pokemon.avatar.url(:medium)
+  = image_tag @pokemon.avatar.url(:thumb)
 .column-center
   %h4 Name
   %p 
@@ -13,18 +13,24 @@
   %h4 Battle Points
   %p 
     = @pokemon.battle_points
+  %h4 Ranking Points
+  %p
+    @pokemon.ranking_points
   %h4 Ranking placement
-  %p= @pokemon.ranking
-.column-center
+  %p
+    = @pokemon.ranking
+  %h4 Fights won
+  %h4 Fights lost
+  %p
+    = @pokemon.fights_won
+  %p
+    = @pokemon.fights_lost
+.column-right
   %h2 Skills
   - @pokemon.skills.each do |skill|
-    %p= skill.name + ' ' + skill.value.to_s
-%table
-  %tr
-    %th Fights won
-    %th Fights lost
-  %tr
-    %th= @pokemon.fights_won
-    %th= @pokemon.fights_lost
+    = skill.name
+    .progress
+      .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": "70", role: "progressbar", style: "width:#{skill.value*20}%", value: skill.value}
+        %span.sr-only skill.value
 
 
