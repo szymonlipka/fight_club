@@ -33,14 +33,31 @@ Deployment
 
 https://fight-club1.herokuapp.com/
 
-Getting Started
+Setup
 ---------------
+
+```
+git clone https://github.com/szymonlipka/fight_club.git
+```
+```
+bundle
+```
+```
+rake db:migrate
+```
+rake db:seed
+```
+```
+bundle exec rails server
+```
 
 Documentation and Support
 -------------------------
 
 Issues
 -------------
+
+Assets don't work on production
 
 Similar Projects
 ----------------

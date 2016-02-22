@@ -13,6 +13,13 @@ RSpec.describe Pokemon, type: :model do
     it { should have_many :skills }
   end
 
+  describe 'paperclip avatars' do
+    it { should have_attached_file(:avatar) }
+    it { should validate_attachment_content_type(:avatar).
+                  allowing('image/png', 'image/gif').
+                  rejecting('text/plain', 'text/xml') }
+  end
+
   describe 'db columns' do
     it { should have_db_column :first_name }
     it { should have_db_column :last_name }

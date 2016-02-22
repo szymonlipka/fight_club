@@ -7,10 +7,6 @@ class Pokemon < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "200x200>", thumb: "100x100>" }, default_url: ActionController::Base.helpers.asset_path('missing.png')
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  def ranking
-    Pokemon.all.order('ranking_points DESC').index(self) + 1
-  end
-
   def minimum_skills
     sum = 0
     skills.each do |skill|
@@ -38,7 +34,11 @@ class Pokemon < ActiveRecord::Base
       ((skills[6].value + skills[7].value)/4)
     update_attribute(:battle_points, battle_points)
   end
-
+  
+  def ranking
+    Pokemon.all.order('ranking_points DESC').index(self) + 1
+  end
+  
   def all_fights
     fights
     inverse_fights

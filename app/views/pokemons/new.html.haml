@@ -10,7 +10,7 @@
   = f.text_field :last_name, placeholder: 'Last name'
   = f.text_area :description, placeholder: 'Description'
   = f.file_field :avatar
-  %h3 Your Skill levels
+  %h3 Your Skill levels - sum of skill levels have to be exacly 10
   - @pokemon.skills.each do |skill|
     = f.fields_for skill, index: skill.name.downcase do |skill_form|
       = skill_form.text_field :name, value: skill.name, readonly: true, hide_label: true
