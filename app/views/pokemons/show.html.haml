@@ -27,10 +27,37 @@
     = @pokemon.fights_lost
 .column-right
   %h2 Skills
-  - @pokemon.skills.each do |skill|
-    = skill.name
-    .progress
-      .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": "70", role: "progressbar", style: "width:#{skill.value*20}%", value: skill.value}
-        %span.sr-only skill.value
+  Flying
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.flying.to_s, role: "progressbar", style: "width:#{@pokemon.flying*20}%", value: @pokemon.flying}
+      %span.sr-only @pokemon.flying
+  Speed
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.speed.to_s, role: "progressbar", style: "width:#{@pokemon.speed*20}%", value: @pokemon.speed}
+      %span.sr-only @pokemon.speed
+  Strength
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.strength.to_s, role: "progressbar", style: "width:#{@pokemon.strength*20}%", value: @pokemon.strength}
+      %span.sr-only @pokemon.strength
+  Wisdom
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.wisdom.to_s, role: "progressbar", style: "width:#{@pokemon.wisdom*20}%", value: @pokemon.wisdom}
+      %span.sr-only @pokemon.wisdom
+  Tactics
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.tactics.to_s, role: "progressbar", style: "width:#{@pokemon.tactics*20}%", value: @pokemon.tactics}
+      %span.sr-only @pokemon.tactics
+  Learning
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.learning.to_s, role: "progressbar", style: "width:#{@pokemon.learning*20}%", value: @pokemon.learning}
+      %span.sr-only @pokemon.learning
+  Inference
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.inference.to_s, role: "progressbar", style: "width:#{@pokemon.inference*20}%", value: @pokemon.inference}
+      %span.sr-only @pokemon.inference
+  Agility
+  .progress
+    .progress-bar{"aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": @pokemon.agility.to_s, role: "progressbar", style: "width:#{@pokemon.agility*20}%", value: @pokemon.agility}
+      %span.sr-only @pokemon.agility
 
 

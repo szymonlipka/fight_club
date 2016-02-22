@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221094144) do
+ActiveRecord::Schema.define(version: 20160222205407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 20160221094144) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "ranking_points",      default: 1000
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "value"
-    t.integer  "pokemon_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "flying",              default: 0
+    t.integer  "speed",               default: 0
+    t.integer  "strength",            default: 0
+    t.integer  "wisdom",              default: 0
+    t.integer  "tactics",             default: 0
+    t.integer  "learning",            default: 0
+    t.integer  "inference",           default: 0
+    t.integer  "agility",             default: 0
   end
 
 end

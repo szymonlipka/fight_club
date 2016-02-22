@@ -11,8 +11,12 @@
   = f.text_area :description, placeholder: 'Description'
   = f.file_field :avatar
   %h3 Your Skill levels - sum of skill levels have to be exacly 10
-  - @pokemon.skills.each do |skill|
-    = f.fields_for skill, index: skill.name.downcase do |skill_form|
-      = skill_form.text_field :name, value: skill.name, readonly: true, hide_label: true
-      = skill_form.select(:value, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]), hide_label: true)
+  = f.select(:flying, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:speed, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:strength, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:wisdom, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:tactics, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:learning, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:inference, options_for_select(6.times.map { |i| [i, i] }))
+  = f.select(:agility, options_for_select(6.times.map { |i| [i, i] }))
   = f.submit 'Create Pokemon'

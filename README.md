@@ -54,5 +54,3 @@ bundle exec rails server
 Issues
 -------------
 
-Assets don't work on production
-
