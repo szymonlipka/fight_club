@@ -30,7 +30,6 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 
 Deployment
 ----------
-
 https://fight-club1.herokuapp.com/
 
 Setup
@@ -52,22 +51,8 @@ rake db:seed
 bundle exec rails server
 ```
 
-Documentation and Support
--------------------------
-
 Issues
 -------------
 
 Assets don't work on production
 
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
