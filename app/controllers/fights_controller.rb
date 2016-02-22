@@ -6,7 +6,7 @@ class FightsController < ApplicationController
 
   def create
     if params[:fight][:pokemon_id] != params[:fight][:competitor_id]
-      @fight = Fight.new(pokemon_id: params[:fight][:pokemon_id], competitor_id: params[:fight][:competitor_id])
+      @fight = Fight.new(fight_params)
       @fight.find_winner
       if @fight.save
         flash[:notice] = @fight.winner.full_name + ' won'
@@ -19,6 +19,12 @@ class FightsController < ApplicationController
       flash[:danger] = 'You cant fight with the same pokemons'
       redirect_to new_fight_path
     end
+  end
+
+  private
+
+  def fight_params
+    params.require(:fight).permit(:competitor_id, :pokemon_id)
   end
 
 end
