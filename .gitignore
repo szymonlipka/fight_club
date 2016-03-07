@@ -43,6 +43,7 @@ db/*.sqlite3
 /public/stylesheets/compiled
 /public/system/*
 /public/assets
+/config/database.yml
 /spec/tmp/*
 /cache
 /capybara*
